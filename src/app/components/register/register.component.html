@@ -1,0 +1,105 @@
+<div class="containerLogin">
+
+    <nav class="menuLogin">
+        <a routerLink="/login">Login</a>
+        <a routerLink="/register">Register</a>
+    </nav>
+
+
+    <div class="box2">
+
+
+        <!--========================================
+            8. Activamos la accion ngsubmit y la funcion y creamos la directiva f
+        =========================================-->
+        <form (ngSubmit)="onSubmit(f)"
+                #f="ngForm">
+        
+            <div class="formGroup">
+        
+                <label for="">Nombre:</label>
+                <input 
+                    type="text"
+                    placeholder="Ingrese el nombre"
+                    [(ngModel)]="user.first_name"
+                    name="first_name"
+                    minlength="3"
+                    pattern="[A-Za-z]"
+                    required
+                    (change)="capitalize(first_name)"
+                    #first_name>
+            </div>
+        
+            <div class="formGroup">
+        
+                <label for="">Apellido:</label>
+                <input 
+                    type="text"
+                    placeholder="Ingrese su correo"
+                    [(ngModel)]="user.last_name"
+                    name="last_name"
+                    minlength="3"
+                    pattern="[A-Za-z]"
+                    required
+                    (change)=capitalize(last_name)
+                    #last_name>
+            </div>
+
+            <div class="formGroup">
+        
+                <label for="">Usuario:</label>
+                <input
+                    type="text"
+                    placeholder="Ingrese su correo"
+                    [(ngModel)]="user.userName"
+                    name="userName"
+                    minlength="2"
+                    maxlength="12"
+                    pattern="[A-Za-z]{2-12}"
+                    required
+                    (change)="validate(username)"
+                    #username>
+        
+            </div>
+        
+            <div class="formGroup">
+        
+                <label for="">Correo:</label>
+                <input
+                    type="email"
+                    placeholder="Ingrese su correo"
+                    [(ngModel)]="user.email"
+                    name="email"
+                    required>
+        
+            </div>
+        
+            <div class="formGroup">
+        
+                <label for="">Clave:</label>
+                <input
+                    type="password"
+                    placeholder="Ingrese su contraseña"
+                    [(ngModel)]="user.password"
+                    name="password"
+                    minlength="4"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"
+                    required
+                    (change)="validate(password)"
+                    #password>
+        
+            </div>
+        
+            <button class="btnF">Crear Cueta</button>
+
+            <div class="redes">
+
+                <p>Registrate con:</p>
+
+                <a class="facebook btn" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="google btn" href=""><i class="fab fa-google"></i></a>
+            </div>
+
+        </form>
+    </div>
+</div>
